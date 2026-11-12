@@ -1,5 +1,6 @@
 package com.exstream.recipebook.ui.theme
 
+import android.content.res.Configuration
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -12,6 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Devices
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.tooling.preview.PreviewWrapper
@@ -293,7 +296,18 @@ class AppThemeWrapper : PreviewWrapperProvider {
     }
 }
 
+
+@Retention(AnnotationRetention.BINARY)
+@Target(AnnotationTarget.ANNOTATION_CLASS, AnnotationTarget.FUNCTION)
+@Preview(name = "Phone", device = Devices.PHONE, uiMode = Configuration.UI_MODE_NIGHT_YES, showSystemUi = true)
+@Preview(name = "Phone - Landscape", device = "spec:width=411dp,height=891dp,orientation=landscape,dpi=420", uiMode = Configuration.UI_MODE_NIGHT_YES, showSystemUi = true)
+@Preview(name = "Unfolded Foldable", device = Devices.FOLDABLE, uiMode = Configuration.UI_MODE_NIGHT_YES, showSystemUi = true)
+@Preview(name = "Tablet", device = Devices.TABLET, uiMode = Configuration.UI_MODE_NIGHT_YES, showSystemUi = true)
+@Preview(name = "Desktop", device = Devices.DESKTOP, uiMode = Configuration.UI_MODE_NIGHT_YES, showSystemUi = true)
+annotation class PreviewScreenSizesDark
+
 @PreviewWrapper(AppThemeWrapper::class)
 @PreviewLightDark
 @PreviewScreenSizes
+@PreviewScreenSizesDark
 annotation class PreviewTheme

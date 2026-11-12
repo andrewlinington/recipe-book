@@ -9,14 +9,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.exstream.recipebook.R
 import com.exstream.recipebook.recipe.data.Recipe
@@ -66,10 +63,7 @@ private fun RecipeRow(
         ) {
             // leading icon
             DsIcon(
-                icon = IconContent(
-                    icon = R.drawable.close, // TODO include icon in the Recipe
-                    contentDescription = "food item" // TODO include this in list of details needed
-                ),
+                icon = recipe.icon,
                 iconSize = { large }
             )
 
@@ -135,6 +129,10 @@ private fun PreviewHomeScreen() {
         recipes = listOf(
             Recipe(
                 name = "Spaghetti and Meatballs",
+                icon = IconContent(
+                    icon = R.drawable.dinner_dining,
+                    contentDescription = "pasta dish"
+                ),
                 description = "",
                 servings = 4,
                 timeInMinutesToCook = 25,
@@ -142,10 +140,25 @@ private fun PreviewHomeScreen() {
             ),
             Recipe(
                 name = "Spaghetti",
+                icon = IconContent(
+                    icon = R.drawable.dinner_dining,
+                    contentDescription = "pasta dish"
+                ),
                 description = "",
                 servings = 4,
                 timeInMinutesToCook = 15,
                 timeInMinutesToPrep = 5
+            ),
+            Recipe(
+                name = "Burger",
+                icon = IconContent(
+                    icon = R.drawable.lunch_dining,
+                    contentDescription = "burger dish"
+                ),
+                description = "",
+                servings = 8,
+                timeInMinutesToCook = 25,
+                timeInMinutesToPrep = 25
             )
         )
     )

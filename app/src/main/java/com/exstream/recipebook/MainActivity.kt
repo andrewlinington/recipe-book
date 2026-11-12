@@ -22,6 +22,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import com.exstream.recipebook.home.HomeScreen
 import com.exstream.recipebook.recipe.data.Recipe
+import com.exstream.recipebook.ui.components.IconContent
+import com.exstream.recipebook.ui.theme.PreviewTheme
 import com.exstream.recipebook.ui.theme.RecipeBookTheme
 
 class MainActivity : ComponentActivity() {
@@ -37,6 +39,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @PreviewScreenSizes
+@PreviewTheme
 @Composable
 fun RecipeBookApp() {
     var currentDestination by rememberSaveable { mutableStateOf(AppDestinations.HOME) }
@@ -64,6 +67,10 @@ fun RecipeBookApp() {
                     recipes = listOf(
                         Recipe(
                             name = "Spaghetti and Meatballs",
+                            icon = IconContent(
+                                icon = R.drawable.dinner_dining,
+                                contentDescription = "pasta dish"
+                            ),
                             description = "",
                             servings = 4,
                             timeInMinutesToCook = 25,
@@ -71,10 +78,25 @@ fun RecipeBookApp() {
                         ),
                         Recipe(
                             name = "Spaghetti",
+                            icon = IconContent(
+                                icon = R.drawable.dinner_dining,
+                                contentDescription = "pasta dish"
+                            ),
                             description = "",
                             servings = 4,
                             timeInMinutesToCook = 15,
                             timeInMinutesToPrep = 5
+                        ),
+                        Recipe(
+                            name = "Burger",
+                            icon = IconContent(
+                                icon = R.drawable.lunch_dining,
+                                contentDescription = "burger dish"
+                            ),
+                            description = "",
+                            servings = 8,
+                            timeInMinutesToCook = 25,
+                            timeInMinutesToPrep = 25
                         )
                     )
                 )
@@ -90,20 +112,4 @@ enum class AppDestinations(
     HOME("Home", R.drawable.ic_home),
     FAVORITES("Favorites", R.drawable.ic_favorite),
     PROFILE("Profile", R.drawable.ic_account_box),
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    RecipeBookTheme {
-        Greeting("Android")
-    }
 }

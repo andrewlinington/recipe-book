@@ -13,6 +13,7 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.tooling.preview.PreviewWrapper
 import androidx.compose.ui.tooling.preview.PreviewWrapperProvider
 
@@ -294,4 +295,5 @@ class AppThemeWrapper : PreviewWrapperProvider {
 
 @PreviewWrapper(AppThemeWrapper::class)
 @PreviewLightDark
+@PreviewScreenSizes
 annotation class PreviewTheme

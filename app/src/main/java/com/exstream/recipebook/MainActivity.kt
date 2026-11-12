@@ -20,6 +20,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
+import com.exstream.recipebook.home.HomeScreen
+import com.exstream.recipebook.recipe.data.Recipe
 import com.exstream.recipebook.ui.theme.RecipeBookTheme
 
 class MainActivity : ComponentActivity() {
@@ -57,10 +59,26 @@ fun RecipeBookApp() {
         }
     ) {
         Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-            Greeting(
-                name = "Android",
-                modifier = Modifier.padding(innerPadding)
-            )
+            if(currentDestination == AppDestinations.HOME) {
+                HomeScreen(
+                    recipes = listOf(
+                        Recipe(
+                            name = "Spaghetti and Meatballs",
+                            description = "",
+                            servings = 4,
+                            timeInMinutesToCook = 25,
+                            timeInMinutesToPrep = 15
+                        ),
+                        Recipe(
+                            name = "Spaghetti",
+                            description = "",
+                            servings = 4,
+                            timeInMinutesToCook = 15,
+                            timeInMinutesToPrep = 5
+                        )
+                    )
+                )
+            }
         }
     }
 }

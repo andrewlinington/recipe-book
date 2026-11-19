@@ -45,9 +45,6 @@ fun HomeScreen(
     }
 }
 
-
-
-
 @Composable
 private fun RecipeRow(
     recipe: Recipe,

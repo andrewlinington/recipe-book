@@ -1,5 +1,7 @@
 package com.exstream.recipebook.recipe.data
 
+import com.exstream.recipebook.R
+import com.exstream.recipebook.ui.components.IconContent
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -55,4 +57,8 @@ private fun testRecipe(
     servings = 1,
     timeInMinutesToCook = timeInMinutesToCook,
     timeInMinutesToPrep = timeInMinutesToPrep,
+    icon =  IconContent(
+        icon = R.drawable.lunch_dining,
+        contentDescription = "burger dish"
+    ),
 )

@@ -7,10 +7,12 @@ espressoCore = "3.7.0"
 lifecycleRuntimeKtx = "2.11.0"
 activityCompose = "1.13.0"
 kotlin = "2.2.10"
+ksp = "2.3.1"
 composeBom = "2025.12.00"
 uiToolingPreview = "1.12.1"
 uiTooling = "1.12.1"
 apollo = "5.2.0"
+hilt = "2.60.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -33,8 +35,14 @@ androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", vers
 
 apollo-runtime = { group = "com.apollographql.apollo", name = "apollo-runtime", version.ref = "apollo" }
 
+# hilt
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 apollo = {id = "com.apollographql.apollo", version.ref = "apollo"}
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = {id = "com.google.dagger.hilt.android", version.ref = "hilt"}
 

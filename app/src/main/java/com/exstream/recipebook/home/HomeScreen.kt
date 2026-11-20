@@ -12,9 +12,13 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.exstream.recipebook.R
 import com.exstream.recipebook.recipe.data.Recipe
 import com.exstream.recipebook.ui.components.DsIcon
@@ -23,9 +27,23 @@ import com.exstream.recipebook.ui.theme.PreviewTheme
 
 @Composable
 fun HomeScreen(
-    recipes: List<Recipe>
-//    homeViewModel: HomeViewModel
+    recipes: List<Recipe>,
+    homeViewModel: HomeViewModel = hiltViewModel()
 ) {
+    val country by homeViewModel.getCountry().collectAsStateWithLifecycle(
+        "",
+        minActiveState = Lifecycle.State.CREATED
+    )
+
+    HomeScreen(recipes, country)
+}
+
+@Composable
+fun HomeScreen(
+    recipes: List<Recipe>,
+    country: String
+) {
+
     Column(
         Modifier.fillMaxSize().padding(12.dp)
     ) {
@@ -35,6 +53,7 @@ fun HomeScreen(
                 shape = RoundedCornerShape(12.dp)
             )
         ) {
+            Text(text = country)
             recipes.forEachIndexed { index, recipe ->
                 RecipeRow(
                     recipe = recipe,
@@ -157,6 +176,7 @@ private fun PreviewHomeScreen() {
                 timeInMinutesToCook = 25,
                 timeInMinutesToPrep = 25
             )
-        )
+        ),
+        country = "Canada"
     )
 }

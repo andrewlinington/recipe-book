@@ -44,6 +44,7 @@ dependencies {
 
     // hilt
     implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.lifecycle.viewmodel.compose)
     ksp(libs.hilt.compiler)
 
     implementation(platform(libs.androidx.compose.bom))
